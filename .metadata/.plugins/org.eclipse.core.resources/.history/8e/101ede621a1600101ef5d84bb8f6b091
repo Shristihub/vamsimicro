@@ -1,0 +1,6 @@
+#database specific configuration
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/vamsimicrodb
+    username: root
+    password: root

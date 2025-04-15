@@ -1,0 +1,29 @@
+package com.productapp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.productapp.model.Product;
+import com.productapp.service.IProductService;
+
+@SpringBootApplication
+public class SpringProductappRestallApplication CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringProductappRestallApplication.class, args);
+	}
+
+	// autowire service
+	@Autowired
+	private IProductService productService;
+	
+	
+	@Override
+	public void run(String... args) throws Exception {
+		//create a product;
+		Product product = new Product("Mobile","Samsung","Electronics",12000);
+		//call the method of ProductService
+//		productService.addProduct(product);
+	}
+}

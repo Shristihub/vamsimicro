@@ -1,0 +1,42 @@
+package com.productapp.service;
+
+import java.util.List;
+
+import com.productapp.exceptions.ProductNotFoundException;
+import com.productapp.model.Product;
+
+public interface IProductService {
+
+	// crud operation
+	void addProduct(Product product);
+	void updateProduct(Product product);
+	void deleteProduct(int productId);
+	
+	List<Product> getAll();
+	Product getById(int productId) throws ProductNotFoundException;
+	
+	//methods to call derived queries
+	List<Product> getByCategory(String category)throws ProductNotFoundException;
+	List<Product> getByBrand(String brand)throws ProductNotFoundException;
+	List<Product> getByLesserPrice(double price)throws ProductNotFoundException;
+	
+	//custom query
+	List<Product> getByBrandPrice(String brand,double price)throws ProductNotFoundException;
+	List<Product> getByProdNameHas(String name)throws ProductNotFoundException;
+	
+	//native query
+	List<Product> getByCatBrand(String brand,String category)throws ProductNotFoundException;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

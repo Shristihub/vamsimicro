@@ -1,0 +1,26 @@
+package com.productapp.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.productapp.model.Product;
+import java.util.List;
+
+
+@Repository
+public interface IProductRepository extends JpaRepository<Product, Integer>{
+
+	//derived queries
+	//getBy(propertyName  with first letter capital)
+    //findBy,readBy,queryBy	
+	
+	List<Product> findByCategory(String category);
+	List<Product> readByBrand(String brand);
+	List<Product> findByPrice(double price);
+	//custom queries
+	//native query
+
+
+	// stored procedure
+	
+}

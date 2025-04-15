@@ -1,0 +1,22 @@
+package com.productapp.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.productapp.exceptions.ProductNotFoundException;
+import com.productapp.model.Product;
+import com.productapp.repository.IProductRepository;
+
+@Service
+public class ProductServiceImpl implements IProductService {
+
+	private IProductRepository productRepository;
+
+	public ProductServiceImpl(IProductRepository productRepository) {
+		super();
+		this.productRepository = productRepository;
+	}
+
+}

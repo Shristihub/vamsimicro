@@ -1,0 +1,22 @@
+package com.productapp.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.productapp.model.Product;
+
+@Repository
+public interface IProductRepository extends JpaRepository<Product, Integer> {
+	// derived query
+	List<Product> findByFeaturesColor(String color);
+	
+	//custom query
+	List<Product> findByColor(String color);
+	
+	
+	
+	
+
+}

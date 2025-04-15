@@ -1,0 +1,69 @@
+package com.productapp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.productapp.model.Product;
+import com.productapp.service.IProductService;
+
+@SpringBootApplication
+public class SpringProductappRestApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringProductappRestApplication.class, args);
+	}
+
+	// autowire service
+	@Autowired
+	private IProductService productService;
+	
+	
+	@Override
+	public void run(String... args) throws Exception {
+		//create a product;
+		Product product = new Product("Mobile","Samsung","Electronics",12000);
+		//call the method of ProductService
+//		productService.addProduct(product);
+		product = new Product("Laptop","Dell","Electronics",120000);
+//		productService.addProduct(product);
+		product = new Product("HeadPhones","Bosch","Electronics",2000);
+//		productService.addProduct(product);
+		product = new Product("Ball","Nike","Kids",1200);
+//		productService.addProduct(product);
+		product = new Product("Jacket","Nike","Sports",3000);
+//		productService.addProduct(product);
+		
+		System.out.println("Get all");
+		productService.getAll().forEach(System.out::println);
+		
+		System.out.println();
+		System.out.println("Get By Id ");
+		Product nproduct = productService.getById(4);
+		System.out.println(nproduct);
+		// update the product - set the value
+		nproduct.setPrice(1800);
+		nproduct.setProductName("FootBall");
+		//call update method
+		productService.updateProduct(nproduct);
+		
+		System.out.println();
+		System.out.println("Get By Id ");
+		Product upproduct = productService.getById(4);
+		System.out.println(upproduct);
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
